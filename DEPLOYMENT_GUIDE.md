@@ -41,10 +41,11 @@ VITE_ALPHA_VANTAGE_API_KEY=your_alpha_vantage_api_key_here
    - Visit [vercel.com](https://vercel.com)
    - Import your GitHub repository
    - Set the following build settings:
-     - **Framework Preset**: Vite
+     - **Framework Preset**: Other
      - **Root Directory**: `client`
      - **Build Command**: `npm run build`
      - **Output Directory**: `dist`
+   - Or use the included `vercel.json` configuration file
 
 3. **Add Environment Variables in Vercel:**
    - Go to Project Settings → Environment Variables
