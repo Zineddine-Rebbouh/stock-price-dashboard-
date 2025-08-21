@@ -47,6 +47,10 @@ export class MemStorage implements IStorage {
       id,
       symbol: insertStock.symbol.toUpperCase(),
       lastUpdated: new Date(),
+      open: insertStock.open || null,
+      high: insertStock.high || null,
+      low: insertStock.low || null,
+      marketCap: insertStock.marketCap || null,
     };
     this.stocks.set(stock.symbol, stock);
     return stock;

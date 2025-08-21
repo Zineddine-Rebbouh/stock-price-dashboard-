@@ -4,6 +4,10 @@ import Header from "@/components/header";
 import MarketOverview from "@/components/market-overview";
 import StockTable from "@/components/stock-table";
 import StockDetails from "@/components/stock-details";
+import MarketNews from "@/components/market-news";
+import PerformanceAnalytics from "@/components/performance-analytics";
+import QuickInsights from "@/components/quick-insights";
+import CryptoTracker from "@/components/crypto-tracker";
 import { stockApi } from "@/lib/api";
 import type { Stock } from "@/types/stock";
 import { useToast } from "@/hooks/use-toast";
@@ -58,7 +62,7 @@ export default function Dashboard() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <MarketOverview />
         
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-12">
           <StockTable 
             selectedStock={selectedStock}
             onStockSelect={handleStockSelect}
@@ -67,6 +71,30 @@ export default function Dashboard() {
           />
           
           <StockDetails stock={selectedStock} />
+        </div>
+
+        {/* Additional Dashboard Sections */}
+        <div className="space-y-12">
+          {/* Performance Analytics */}
+          <section>
+            <h2 className="text-2xl font-bold text-slate-text mb-6">Market Performance</h2>
+            <PerformanceAnalytics />
+          </section>
+
+          {/* Quick Insights */}
+          <section>
+            <h2 className="text-2xl font-bold text-slate-text mb-6">Market Insights</h2>
+            <QuickInsights />
+          </section>
+
+          {/* News and Crypto */}
+          <section>
+            <h2 className="text-2xl font-bold text-slate-text mb-6">Market Updates</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <MarketNews />
+              <CryptoTracker />
+            </div>
+          </section>
         </div>
       </main>
 
