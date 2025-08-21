@@ -9,6 +9,7 @@ import PerformanceAnalytics from "@/components/performance-analytics";
 import QuickInsights from "@/components/quick-insights";
 import CryptoTracker from "@/components/crypto-tracker";
 import { stockApi } from "@/lib/api";
+import { useInitializeData } from "@/hooks/use-init-data";
 import type { Stock } from "@/types/stock";
 import { useToast } from "@/hooks/use-toast";
 
@@ -17,6 +18,9 @@ export default function Dashboard() {
   const [searchResults, setSearchResults] = useState<Stock[]>([]);
   const [isSearching, setIsSearching] = useState(false);
   const { toast } = useToast();
+  
+  // Initialize sample data on component mount
+  useInitializeData();
 
   const handleSearch = async (query: string) => {
     if (!query.trim()) {

@@ -1,0 +1,17 @@
+{
+  "name": "stockdash-frontend",
+  "version": "1.0.0",
+  "description": "Professional Stock Market Dashboard - Frontend Only",
+  "type": "module",
+  "scripts": {
+    "dev": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "preview": "cd client && npm run preview",
+    "install-deps": "cd client && npm install"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

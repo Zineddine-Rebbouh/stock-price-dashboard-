@@ -1,5 +1,5 @@
 export interface Stock {
-  id: string;
+  id?: string;
   symbol: string;
   name: string;
   price: string;
@@ -10,23 +10,25 @@ export interface Stock {
   high?: string;
   low?: string;
   marketCap?: string;
-  lastUpdated: Date;
+  industry?: string;
+  sector?: string;
+  lastUpdated?: string;
 }
 
 export interface MarketIndex {
-  id: string;
+  id?: string;
   name: string;
   symbol: string;
   price: string;
   change: string;
   changePercent: string;
-  lastUpdated: Date;
+  lastUpdated?: string;
 }
 
 export interface WatchlistItem {
   id: string;
   symbol: string;
-  addedAt: Date;
+  addedAt: string;
 }
 
 export interface SearchResult {

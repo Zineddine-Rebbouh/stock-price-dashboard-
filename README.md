@@ -45,17 +45,17 @@ Experience the live dashboard with real-time stock data powered by Alpha Vantage
 - **Wouter** for lightweight client-side routing
 - **Lucide React** for consistent iconography
 
-### Backend
-- **Node.js** with Express.js framework
-- **TypeScript** for full-stack type safety
-- **PostgreSQL** with Drizzle ORM for data persistence
-- **Session-based authentication** with connect-pg-simple
-- **RESTful API** design with proper error handling
+### Data Management
+- **Frontend-only architecture** - no backend server required
+- **localStorage persistence** for watchlist and cached data
+- **Direct API integration** with Alpha Vantage from the browser
+- **Smart caching strategy** to optimize API usage within rate limits
 
 ### External Integrations
-- **Alpha Vantage API** for real-time stock market data
-- **PostgreSQL Database** for data persistence and caching
-- **Vite** for fast development and optimized builds
+- **Alpha Vantage API** for real-time stock market data (direct browser calls)
+- **localStorage** for data persistence and caching
+- **Vite** for fast development and optimized static builds
+- **Vercel/Netlify** ready for instant deployment
 
 ## 🎨 Design Philosophy
 
@@ -99,8 +99,7 @@ The dashboard follows a professional financial interface design with:
 
 ### Prerequisites
 - Node.js 18+ 
-- PostgreSQL database (optional, falls back to in-memory storage)
-- Alpha Vantage API key (free tier available)
+- Alpha Vantage API key (free tier available - 25 requests/day)
 
 ### Installation
 
@@ -112,13 +111,15 @@ The dashboard follows a professional financial interface design with:
 
 2. **Install dependencies**
    ```bash
+   cd client
    npm install
    ```
 
 3. **Set up environment variables**
    ```bash
-   # Add your Alpha Vantage API key
-   ALPHA_VANTAGE_API_KEY=your_api_key_here
+   # Create .env.local file in client directory
+   cd client
+   echo "VITE_ALPHA_VANTAGE_API_KEY=your_api_key_here" > .env.local
    ```
 
 4. **Start the development server**
@@ -127,7 +128,19 @@ The dashboard follows a professional financial interface design with:
    ```
 
 5. **Open your browser**
-   Navigate to `http://localhost:5000` to view the dashboard
+   Navigate to `http://localhost:5173` to view the dashboard
+
+### Deployment to Vercel
+
+1. **Push to GitHub**
+2. **Import to Vercel** with these settings:
+   - Framework: Vite
+   - Root Directory: `client`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+3. **Add Environment Variable**: `VITE_ALPHA_VANTAGE_API_KEY`
+
+See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for detailed deployment instructions.
 
 ## 📱 Usage
 
